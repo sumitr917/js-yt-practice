@@ -30,7 +30,7 @@ let myFunction = function(){
     console.log("Hello World!")
 }
 
-console.log(typeof bigNumber)
+console.log(`${typeof bigNumber} is the type of BigInt.`)
 console.log(typeof null)
 console.log(typeof myFunction)
 console.log(typeof heroes)
