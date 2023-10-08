@@ -1,0 +1,6 @@
+                                        Javascript Execution Context
+{} - Global EC - (this)
+
+Function Execution Context
+
+Eval Execution Context
