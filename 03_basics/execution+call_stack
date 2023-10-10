@@ -1,6 +1,33 @@
                                         Javascript Execution Context
+# Three types of execution context
+
 {} - Global EC - (this)
 
 Function Execution Context
 
 Eval Execution Context
+
+-----------------------------------------------------
+
+# Steps followed during execution environment creation
+
+1. Global Execution - (this)
+2. Memory Phase
+   undefined assigned to variables and definition to functions
+
+3. Execution Phase
+   values assigned to variables
+   functions create a separate execution context for themselves - (new variable environment + execution thread 
+   i.e. Memory Phase and Execution Phase will be created again for the function)
+   
+   returning values will start from innermost execution context and continue till final return to global context
+
+   also, after return execution context is deleted
+
+
+# Call - Stack 
+
+  Global Execution is at at the bottom of Stack
+  subsequent method calls are stored on top of it
+  they are popped out in LIFO strategy 
+  Global is popped at last
