@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI Calculator</title>
+</head>
+<body>
+    <div class="container">
+        <h1>BMI Calculator</h1>
+        <form>
+            <p><label>Height in cm: </label><input type="text" id="height"></p>
+            <p><label>Weight in kg: </label><input type="text" id="weight"></p>
+            <button>Calculate</button>
+
+            <div id="results"></div>
+            <div id="weight-guide" style="display: none;">
+                <h3>BMI Weight Guide</h3>
+                <p id="under-weight" style="display: none;">Under Weight = Less than 18.6</p>
+                <p id="normal" style="display: none;">Normal = 18.6 to 24.9</p>
+                <p id="over-weight" style="display: none;">Overweight = Greater than 24.9</p>
+            </div>
+        </form>
+    </div>
+</body>
+<script>
+    const form = document.querySelector('form')
+    form.addEventListener('submit', (e)=>{
+        e.preventDefault()
+
+        const height = parseInt(document.querySelector('#height').value)
+        const weight = parseInt(document.querySelector('#weight').value)
+        const results = document.querySelector('#results')
+        const weightGuide = document.querySelector('#weight-guide')
+        const underWeight = document.querySelector('#under-weight')
+        const overWeight = document.querySelector('#over-weight')
+        const normal = document.querySelector('#normal')
+
+        if(height === '' || height < 0 || isNaN(height)){
+           results.innerHTML = "Please give a valid height" 
+           weightGuide.style.display = 'none' 
+        }
+
+        else if(weight === '' || weight < 0 || isNaN(weight)){
+           results.innerHTML = "Please give a valid weight"
+           weightGuide.style.display = 'none' 
+        }
+        else{
+            const bmi = (weight / ((height*height)/10000)).toFixed(2)
+            results.innerHTML = `<span>${bmi}</span>`
+            weightGuide.style.display = ''
+            if(bmi > 24.9){
+                overWeight.style.display = ''
+                underWeight.style.display = 'none'
+                normal.style.display = 'none'
+            }
+            else if(bmi >= 18.6 && bmi <= 24.9){
+                overWeight.style.display = 'none'
+                underWeight.style.display = 'none'
+                normal.style.display = ''
+            }
+            else{
+                overWeight.style.display = 'none'
+                underWeight.style.display = ''
+                normal.style.display = 'none'
+            }
+
+        }
+    })
+</script>
+</html>
