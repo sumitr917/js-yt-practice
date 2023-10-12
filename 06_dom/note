@@ -1,0 +1,15 @@
+# Structure Hierarchy for DOM
+
+                                            Window
+                                              |
+                                           Document
+                                              |
+                                             HTML
+                                   |                      |
+                                 Head                    Body 
+                        |                    |            |
+                      Title                Meta          Div - Attribute
+                        |                    |          |     |         
+                    Text Node            Attribute     H1     P
+                                                        |     | 
+                                                    Text Node Text Node
