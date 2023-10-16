@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Press The Key</title>
+    <style>
+        .project {
+            display: flex;
+            height: 100vh;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+    </style>
+</head>
+<body style="background-color: #212121; color: #fff;">
+    <div class="project">
+        <div id="insert">
+            <div class="key">
+                Press The key and Watch The Magic
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    const insert = document.querySelector('#insert')
+
+    window.addEventListener('keydown', (e) => {
+        insert.innerHTML = `
+            <div class="color">
+                <table>
+                <tr>
+                    <th>Key</th>
+                    <th>Keycode</th>
+                    <th>Code</th>
+                </tr>
+                <tr>
+                    <td>${e.key === " " ? "Space" : e.key}</td>
+                    <td>${e.keyCode}</td>
+                    <td>${e.code}</td>
+                </tr>
+                </table>
+            </div>
+        `
+    })
+</script>
+</html>
