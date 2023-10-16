@@ -1,0 +1,8 @@
+// javascript is synchronous and single threaded by default which has to be forcefully made asynchronous
+
+// Blocking Code vs Non Blocking Code
+
+Blocking code blocks the flow of program. Ex : read file sync.
+
+Non Blocking Code does not block execution. Ex : read file async.
+

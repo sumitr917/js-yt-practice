@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events</title>
+</head>
+<body style="background-color: #414141; color: aliceblue;">
+    <div class="container">
+        <h2>Amazing List</h2>
+        <ul id="links">
+            <li id="one">One</li>
+            <br/>
+            <br/>
+            <li id="two">Two</li>
+            <br/>
+            <br/>
+            <li id="three">Three</li>
+            <br/>
+            <br/>
+            <li id="four">Four</li>
+            <br/>
+            <br/>
+            <li id="five">Five</li>
+            <br/>
+            <br/>
+            <li id="six"><a id="google" href="https://google.com" style="color: aliceblue;">Six</a></li>
+        </ul>
+    </div>
+</body>
+<script>
+    // // document.getElementById("one").onclick = function(){
+    // //     alert("one clicked")
+    // // }
+
+    // document.getElementById('one').addEventListener('click', function(){
+    //     alert("one clicked")
+    // },
+    // false) // best approach
+
+    // document.getElementById('two').addEventListener('click', function(e){
+    //     alert('two clicked')
+    // }, false)
+
+    // // attachEvent()
+
+    // // jQuery - on
+
+
+    // // event
+    // //type, timestamp, defaultPrevented
+    // //target, toElement, srcElement, currentTarget
+    // //clientX, clientY, scrrenX, screenY
+    // //altkey, ctrlkey, shiftkey, keyCode
+
+    // // event propagation - event bubbling & event capturing
+    
+    // // document.getElementById('links').addEventListener('click', function(){
+    // //     alert('clicked on ul')
+    // // }, false) // default parameter is false itself which adds Event Listener in bubbling mode i.e. first child element then parent
+
+    // // document.getElementById('links').addEventListener('click', function(){
+    // //     alert('clicked on ul')
+    // // }, true) // when true is passed , first parent then child
+
+    // document.getElementById('links').addEventListener('click', function(e){
+    //     alert('clicked on ul') 
+    // })// default is false
+
+    // document.getElementById('three').addEventListener('click', function(e){
+    //     alert('three clicked')
+    // })
+
+    // document.getElementById('four').addEventListener('click', function(e){
+    //     alert('four clicked')
+    //     e.stopPropagation() // to stop bubbling of events
+    // })
+
+    // document.getElementById('google').addEventListener('click', function(e){
+    //     e.preventDefault()
+    //     e.stopPropagation()
+    //     console.log('google clicked')
+    // }, false)
+
+    document.querySelector('#links').addEventListener('click', function(e){
+        console.log(e)
+        console.log(e.target)
+        console.log(e.target.parentNode)
+        let removeIt = e.target
+        if(e.target.tagName === 'LI'){
+            removeIt.remove()
+        }
+    })
+</script>
+</html>
+
+<!-- adding onclick directly into elements in HTML is not scalable -->
+<!--  -->
