@@ -1,0 +1,16 @@
+
+# First Login - api/authentication/authenticate
+
+accessToken - 30 min
+refreshToken - 1  getDay
+
+# RefreshToken(TokenModel tokenModel)
+
+new accessToken - 30 min
+new refreshToken - no change in expiry
+
+# Revoke(string userPhone)
+
+refreshToken set as null
+
+ 
