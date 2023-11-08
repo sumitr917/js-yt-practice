@@ -6,18 +6,56 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Closure</title>
 </head>
-<body>
-    
+<body style="background-color: #313131;">
+    <button id="orange">Orange</button>
+    <button id="green">Green</button>
 </body>
 <script>
-    function outer(){
-        let username = 'sumit'
-        function inner(){
-            console.log("inner",username)
+    // document.getElementById('orange').onclick = function(){
+    //     document.body.style.backgroundColor = 'orange'
+    // }
+
+    // document.getElementById('green').onclick = function(){
+    //     document.body.style.backgroundColor = 'green'
+    // }
+
+    function clickHandler(color){
+        return function(){
+            document.body.style.backgroundColor = color
         }
-        inner()
     }
-    outer()
-    console.log("TOO OUTER",username)
+
+    document.getElementById('orange').onclick = clickHandler('orange')
+    document.getElementById('green').onclick = clickHandler('green')
+
+    // function outer(){
+    //     let username = 'sumit'
+    //     function inner(){
+    //         username = 'changed'
+    //         console.log("inner",username)
+    //     }
+    //     function innerTwo(){
+    //         console.log(username)
+    //     }
+    //     innerTwo()
+    //     inner()
+    //     //innerTwo()
+        
+
+    // }
+    // // outer()
+    // // console.log("TOO OUTER",username)
+    // function makeFunc(){
+    //         const name = 'Sumit'
+    //         function displayName(){
+    //             console.log(name)
+    //         }
+    //         return displayName
+    //         // along with the function displayName its lexical scope is also returned making it possible to access 'name'
+    // }
+
+    // const myFunc = makeFunc()
+    // myFunc()
+    
 </script>
 </html>
